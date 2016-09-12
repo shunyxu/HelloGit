@@ -11,9 +11,6 @@ import com.xu.hellogitdemo.R;
 
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by 49820 on 2016/9/11.
  */
@@ -27,7 +24,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_card, parent, false);
-        MyViewHolder holder=new MyViewHolder(view);
+        MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }
 
@@ -43,14 +40,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.card_view)
+        //        @BindView(R.id.card_view)
         CardView cardView;
-        @Bind(R.id.info_text)
+        //        @BindView(R.id.info_text)
         TextView tv_info;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+//            ButterKnife.bind(this, itemView);
+            cardView = (CardView) itemView.findViewById(R.id.card_view);
+            tv_info = (TextView) itemView.findViewById(R.id.info_text);
         }
     }
 }
